@@ -1,0 +1,31 @@
+name: "pspnet101_VOC2012"
+
+layer {
+  name: "data"
+  type: "ImageSegData"
+  top: "data"
+  top: "label"
+  #top: "data_dim"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+    mirror: true
+    crop_size: 473
+    mean_value: 104.008
+    mean_value: 116.669
+    mean_value: 122.675
+    scale_factors: 0.5
+    scale_factors: 0.75
+    scale_factors: 1
+    scale_factors: 1.25
+    scale_factors: 1.5
+  }
+  image_data_param {
+    root_folder: "/home/rcvlab/workspace/caffe-seg/pspnet/"
+    source: "/home/rcvlab/workspace/caffe-seg/pspnet/splits/pascal_voc_train_aug.txt"
+    batch_size: 1
+    shuffle: false
+    label_type: PIXEL
+  }
+}
