@@ -1,0 +1,3 @@
+CUR_DIR=$(pwd)
+echo $CUR_DIR
+export PYTHONPATH="${CUR_DIR}/caffe-1.0/python:${PYTHONPATH}"
